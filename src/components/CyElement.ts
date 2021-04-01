@@ -82,6 +82,10 @@ export default class CyElement extends Vue {
     return this.definition.position
   }
 
+  get style() {
+    return this.definition.style
+  }
+
   @Watch('eleData', { deep: true })
   onDataChange(data: any) {
     const instance = this.instance as Core
@@ -94,6 +98,13 @@ export default class CyElement extends Vue {
     const instance = this.instance as Core
     const ele = instance.getElementById(this.id as string)
     ele.position(JSON.parse(JSON.stringify(position)))
+  }
+
+  @Watch('style', { deep: true })
+  onStyleChange(style: any = null) {
+    const instance = this.instance as Core
+    const ele = instance.getElementById(this.id as string)
+    ele.style(JSON.parse(JSON.stringify(style)))
   }
 
   render(h: (arg0: string) => void) {

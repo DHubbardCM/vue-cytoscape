@@ -36770,6 +36770,14 @@ function (_Vue) {
       ele.position(JSON.parse(JSON.stringify(position)));
     }
   }, {
+    key: "onStyleChange",
+    value: function onStyleChange() {
+      var style = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var instance = this.instance;
+      var ele = instance.getElementById(this.id);
+      ele.style(JSON.parse(JSON.stringify(style)));
+    }
+  }, {
     key: "render",
     value: function render(h) {// do nothing
     }
@@ -36782,6 +36790,11 @@ function (_Vue) {
     key: "position",
     get: function get() {
       return this.definition.position;
+    }
+  }, {
+    key: "style",
+    get: function get() {
+      return this.definition.style;
     }
   }]);
 
@@ -36803,6 +36816,10 @@ __decorate([Watch('eleData', {
 __decorate([Watch('position', {
   deep: true
 })], CyElement_CyElement.prototype, "onPositionChange", null);
+
+__decorate([Watch('style', {
+  deep: true
+})], CyElement_CyElement.prototype, "onStyleChange", null);
 
 CyElement_CyElement = __decorate([vue_class_component_esm({})], CyElement_CyElement);
 /* harmony default export */ var components_CyElement = (CyElement_CyElement);

@@ -13,7 +13,9 @@ export default class CyElement extends Vue {
     beforeDestroy(): void;
     get eleData(): import("cytoscape").NodeDataDefinition | import("cytoscape").EdgeDataDefinition;
     get position(): import("cytoscape").Position | undefined;
+    get style(): any;
     onDataChange(data: any): void;
     onPositionChange(position?: any): void;
+    onStyleChange(style?: any): void;
     render(h: (arg0: string) => void): void;
 }
