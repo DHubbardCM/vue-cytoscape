@@ -86,6 +86,10 @@ export default class CyElement extends Vue {
     return this.definition.style
   }
 
+  get classes() {
+    return this.definition.classes
+  }
+
   @Watch('eleData', { deep: true })
   onDataChange(data: any) {
     const instance = this.instance as Core
@@ -104,7 +108,14 @@ export default class CyElement extends Vue {
   onStyleChange(style: any = null) {
     const instance = this.instance as Core
     const ele = instance.getElementById(this.id as string)
-    ele.style(JSON.parse(JSON.stringify(style)))
+    ele.style(style)
+  }
+
+  @Watch('classes', { deep: true })
+  onClassesChange(classes: any = null) {
+    const instance = this.instance as Core
+    const ele = instance.getElementById(this.id as string)
+    ele.classes(classes)
   }
 
   render(h: (arg0: string) => void) {

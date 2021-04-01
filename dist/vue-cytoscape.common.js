@@ -36766,7 +36766,15 @@ function (_Vue) {
       var style = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
       var instance = this.instance;
       var ele = instance.getElementById(this.id);
-      ele.style(JSON.parse(JSON.stringify(style)));
+      ele.style(style);
+    }
+  }, {
+    key: "onClassesChange",
+    value: function onClassesChange() {
+      var classes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var instance = this.instance;
+      var ele = instance.getElementById(this.id);
+      ele.classes(classes);
     }
   }, {
     key: "render",
@@ -36786,6 +36794,11 @@ function (_Vue) {
     key: "style",
     get: function get() {
       return this.definition.style;
+    }
+  }, {
+    key: "classes",
+    get: function get() {
+      return this.definition.classes;
     }
   }]);
 
@@ -36811,6 +36824,10 @@ __decorate([Watch('position', {
 __decorate([Watch('style', {
   deep: true
 })], CyElement_CyElement.prototype, "onStyleChange", null);
+
+__decorate([Watch('classes', {
+  deep: true
+})], CyElement_CyElement.prototype, "onClassesChange", null);
 
 CyElement_CyElement = __decorate([vue_class_component_esm({})], CyElement_CyElement);
 /* harmony default export */ var components_CyElement = (CyElement_CyElement);

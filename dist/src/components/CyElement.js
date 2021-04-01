@@ -65,6 +65,9 @@ let CyElement = class CyElement extends Vue {
     get style() {
         return this.definition.style;
     }
+    get classes() {
+        return this.definition.classes;
+    }
     onDataChange(data) {
         const instance = this.instance;
         const ele = instance.getElementById(this.id);
@@ -78,7 +81,12 @@ let CyElement = class CyElement extends Vue {
     onStyleChange(style = null) {
         const instance = this.instance;
         const ele = instance.getElementById(this.id);
-        ele.style(JSON.parse(JSON.stringify(style)));
+        ele.style(style);
+    }
+    onClassesChange(classes = null) {
+        const instance = this.instance;
+        const ele = instance.getElementById(this.id);
+        ele.classes(classes);
     }
     render(h) {
         // do nothing
@@ -102,6 +110,9 @@ __decorate([
 __decorate([
     Watch('style', { deep: true })
 ], CyElement.prototype, "onStyleChange", null);
+__decorate([
+    Watch('classes', { deep: true })
+], CyElement.prototype, "onClassesChange", null);
 CyElement = __decorate([
     Component({})
 ], CyElement);
